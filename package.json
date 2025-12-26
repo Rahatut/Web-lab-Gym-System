@@ -13,7 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "seed": "node scripts/seedData.js"
+    "seed": "node scripts/seedData.js",
+    "test:schedule": "node scripts/testScheduling.js"
   },
   "author": "",
   "license": "ISC",

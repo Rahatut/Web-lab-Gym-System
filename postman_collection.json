@@ -2,117 +2,216 @@
   "info": {
     "name": "Gym System API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "version": "1.0.0"
+    "version": "1.2.0"
   },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": ""
+    },
+    {
+      "key": "trainerId",
+      "value": ""
+    }
+  ],
   "item": [
     {
       "name": "Users",
       "item": [
         {
           "name": "Get All Users",
-          "request": {
-            "method": "GET",
-            "url": {
-              "raw": "{{baseUrl}}/api/users",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "users"]
-            }
-          }
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/users" }
         },
         {
-          "name": "Get User by ID",
-          "request": {
-            "method": "GET",
-            "url": {
-              "raw": "{{baseUrl}}/api/users/:id",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "users", ":id"]
-            }
-          }
-        },
-        {
-          "name": "Create User",
+          "name": "Create User - Alice (Premium)",
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": { "mode": "raw", "raw": "{ \"name\": \"Example User\", \"email\": \"example@example.com\", \"age\": 30, \"membershipType\": \"premium\" }" },
-            "url": { "raw": "{{baseUrl}}/api/users" }
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Alice Johnson\", \"email\": \"alice@example.com\", \"age\": 28, \"membershipType\": \"premium\", \"active\": true }"
+            },
+            "url": "{{baseUrl}}/api/users"
           }
         },
         {
-          "name": "Update User",
+          "name": "Create User - Bob (Basic)",
           "request": {
-            "method": "PATCH",
+            "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": { "mode": "raw", "raw": "{ \"membershipType\": \"elite\" }" },
-            "url": { "raw": "{{baseUrl}}/api/users/:id" }
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Bob Smith\", \"email\": \"bob@example.com\", \"age\": 35, \"membershipType\": \"basic\", \"active\": true }"
+            },
+            "url": "{{baseUrl}}/api/users"
           }
         },
         {
-          "name": "Delete User",
+          "name": "Create User - Charlie (Elite)",
           "request": {
-            "method": "DELETE",
-            "url": { "raw": "{{baseUrl}}/api/users/:id" }
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Charlie Brown\", \"email\": \"charlie@example.com\", \"age\": 22, \"membershipType\": \"elite\", \"active\": true }"
+            },
+            "url": "{{baseUrl}}/api/users"
+          }
+        },
+        {
+          "name": "Create User - Diana (Premium)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Diana Prince\", \"email\": \"diana@example.com\", \"age\": 30, \"membershipType\": \"premium\", \"active\": true }"
+            },
+            "url": "{{baseUrl}}/api/users"
+          }
+        },
+        {
+          "name": "Create User - Evan (Inactive)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Evan Wright\", \"email\": \"evan@example.com\", \"age\": 40, \"membershipType\": \"basic\", \"active\": false }"
+            },
+            "url": "{{baseUrl}}/api/users"
           }
         }
       ]
     },
+
     {
       "name": "Trainers",
       "item": [
         {
           "name": "Get All Trainers",
-          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/trainers" } }
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/trainers" }
         },
         {
-          "name": "Get Trainer by ID",
-          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
-        },
-        {
-          "name": "Create Trainer",
+          "name": "Create Trainer - John Doe",
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": { "mode": "raw", "raw": "{ \"name\": \"Trainer Example\", \"email\": \"trainer@example.com\", \"specialization\": [\"strength\"], \"experienceYears\": 3, \"hourlyRate\": 30 }" },
-            "url": { "raw": "{{baseUrl}}/api/trainers" }
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"John Doe\", \"email\": \"john.d@trainers.com\", \"specialization\": [\"strength\"], \"experienceYears\": 5, \"hourlyRate\": 50, \"available\": true }"
+            },
+            "url": "{{baseUrl}}/api/trainers"
           }
         },
         {
-          "name": "Update Trainer",
-          "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"hourlyRate\": 45 }" }, "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
+          "name": "Create Trainer - Jane Roe",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Jane Roe\", \"email\": \"jane.r@trainers.com\", \"specialization\": [\"cardio\", \"yoga\"], \"experienceYears\": 8, \"hourlyRate\": 60, \"available\": true }"
+            },
+            "url": "{{baseUrl}}/api/trainers"
+          }
         },
         {
-          "name": "Delete Trainer",
-          "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
+          "name": "Create Trainer - Mike Tyson",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Mike Tyson\", \"email\": \"mike.t@trainers.com\", \"specialization\": [\"boxing\"], \"experienceYears\": 15, \"hourlyRate\": 100, \"available\": true }"
+            },
+            "url": "{{baseUrl}}/api/trainers"
+          }
+        },
+        {
+          "name": "Create Trainer - Sarah Connor",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Sarah Connor\", \"email\": \"sarah.c@trainers.com\", \"specialization\": [\"crossfit\"], \"experienceYears\": 4, \"hourlyRate\": 45, \"available\": true }"
+            },
+            "url": "{{baseUrl}}/api/trainers"
+          }
+        },
+        {
+          "name": "Create Trainer - Rocky Balboa",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \"name\": \"Rocky Balboa\", \"email\": \"rocky.b@trainers.com\", \"specialization\": [\"strength\", \"boxing\"], \"experienceYears\": 20, \"hourlyRate\": 80, \"available\": true }"
+            },
+            "url": "{{baseUrl}}/api/trainers"
+          }
         }
       ]
     },
+
     {
       "name": "Workouts",
       "item": [
-        { "name": "Get All Workouts", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/workouts" } } },
-        { "name": "Get Workout by ID", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } },
-        { "name": "Create Workout", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"title\": \"Push Ups\", \"load\": 0, \"reps\": 20, \"difficulty\": \"easy\" }" }, "url": { "raw": "{{baseUrl}}/api/workouts" } } },
-        { "name": "Update Workout", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"reps\": 25 }" }, "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } },
-        { "name": "Delete Workout", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } }
-      ]
-    },
-    {
-      "name": "Schedules",
-      "item": [
-        { "name": "Get All Schedules", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/schedules" } } },
-        { "name": "Get Schedule by ID", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } },
         {
-          "name": "Create Schedule",
+          "name": "Get All Workouts",
+          "request": { "method": "GET", "url": "{{baseUrl}}/api/workouts" }
+        },
+        {
+          "name": "Create Workout - Push Ups",
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "body": { "mode": "raw", "raw": "{ \"userId\": \"{{userId}}\", \"trainerId\": \"{{trainerId}}\", \"scheduledAt\": \"2025-12-30T10:00:00.000Z\", \"workoutTypes\": [\"strength\"] }" },
-            "url": { "raw": "{{baseUrl}}/api/schedules" }
+            "body": { "mode": "raw", "raw": "{ \"title\": \"Push Ups\", \"load\": 0, \"reps\": 20, \"difficulty\": \"easy\" }" },
+            "url": "{{baseUrl}}/api/workouts"
           }
         },
-        { "name": "Update Schedule", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"scheduledAt\": \"2025-12-31T10:00:00.000Z\" }" }, "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } },
-        { "name": "Delete Schedule", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } }
+        {
+          "name": "Create Workout - Bench Press",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"title\": \"Bench Press\", \"load\": 50, \"reps\": 10, \"difficulty\": \"medium\" }" },
+            "url": "{{baseUrl}}/api/workouts"
+          }
+        },
+        {
+          "name": "Create Workout - Squats",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"title\": \"Squats\", \"load\": 60, \"reps\": 12, \"difficulty\": \"medium\" }" },
+            "url": "{{baseUrl}}/api/workouts"
+          }
+        },
+        {
+          "name": "Create Workout - Deadlift",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"title\": \"Deadlift\", \"load\": 80, \"reps\": 5, \"difficulty\": \"hard\" }" },
+            "url": "{{baseUrl}}/api/workouts"
+          }
+        },
+        {
+          "name": "Create Workout - Pull Ups",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"title\": \"Pull Ups\", \"load\": 0, \"reps\": 10, \"difficulty\": \"medium\" }" },
+            "url": "{{baseUrl}}/api/workouts"
+          }
+        }
       ]
     }
   ]
