@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "Gym System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/users/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", ":id"]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"name\": \"Example User\", \"email\": \"example@example.com\", \"age\": 30, \"membershipType\": \"premium\" }" },
+            "url": { "raw": "{{baseUrl}}/api/users" }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"membershipType\": \"elite\" }" },
+            "url": { "raw": "{{baseUrl}}/api/users/:id" }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/api/users/:id" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Trainers",
+      "item": [
+        {
+          "name": "Get All Trainers",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/trainers" } }
+        },
+        {
+          "name": "Get Trainer by ID",
+          "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
+        },
+        {
+          "name": "Create Trainer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"name\": \"Trainer Example\", \"email\": \"trainer@example.com\", \"specialization\": [\"strength\"], \"experienceYears\": 3, \"hourlyRate\": 30 }" },
+            "url": { "raw": "{{baseUrl}}/api/trainers" }
+          }
+        },
+        {
+          "name": "Update Trainer",
+          "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"hourlyRate\": 45 }" }, "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
+        },
+        {
+          "name": "Delete Trainer",
+          "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/trainers/:id" } }
+        }
+      ]
+    },
+    {
+      "name": "Workouts",
+      "item": [
+        { "name": "Get All Workouts", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/workouts" } } },
+        { "name": "Get Workout by ID", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } },
+        { "name": "Create Workout", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"title\": \"Push Ups\", \"load\": 0, \"reps\": 20, \"difficulty\": \"easy\" }" }, "url": { "raw": "{{baseUrl}}/api/workouts" } } },
+        { "name": "Update Workout", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"reps\": 25 }" }, "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } },
+        { "name": "Delete Workout", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/workouts/:id" } } }
+      ]
+    },
+    {
+      "name": "Schedules",
+      "item": [
+        { "name": "Get All Schedules", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/schedules" } } },
+        { "name": "Get Schedule by ID", "request": { "method": "GET", "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } },
+        {
+          "name": "Create Schedule",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{ \"userId\": \"{{userId}}\", \"trainerId\": \"{{trainerId}}\", \"scheduledAt\": \"2025-12-30T10:00:00.000Z\", \"workoutTypes\": [\"strength\"] }" },
+            "url": { "raw": "{{baseUrl}}/api/schedules" }
+          }
+        },
+        { "name": "Update Schedule", "request": { "method": "PATCH", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{ \"scheduledAt\": \"2025-12-31T10:00:00.000Z\" }" }, "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } },
+        { "name": "Delete Schedule", "request": { "method": "DELETE", "url": { "raw": "{{baseUrl}}/api/schedules/:id" } } }
+      ]
+    }
+  ]
+}
